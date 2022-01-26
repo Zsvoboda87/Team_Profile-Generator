@@ -1,10 +1,8 @@
 const Employee = require('../lib/Employee.js');
 
 
-
-
 test('creates an Employee Object', () => {
-    const Employee = new Employee('goblin');
+    const employee = new Employee('Charley');
 
-    expect(enemy.name).toBe('goblin');
+    expect(employee.name).toBe('Charley');
 });
