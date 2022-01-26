@@ -1,0 +1,22 @@
+{
+  "name": "team_profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zsvoboda87/Team_Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zsvoboda87/Team_Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Zsvoboda87/Team_Profile-Generator#readme",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
