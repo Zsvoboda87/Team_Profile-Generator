@@ -1,6 +1,33 @@
+
+
 .flex-evenly {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-bottom: 20px;
+    
+  }
+
+  .card {
+    border: 2px solid black;
+    width: 22vw;
+    height: 200px;
+    background-color: lightslategray;
+  }
+  .card-header {
+    margin-top: 0;
+    background-color: limegreen;
+  }
+  .card-header h3 {
+    padding-top: 3px;
+ 
+  }
+
+  .card-header h4 {
+    padding-bottom: 3px;
+    
+  }
+
+  .card-main div{
+    margin: 5px;
+
   }
