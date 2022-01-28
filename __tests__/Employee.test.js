@@ -8,3 +8,6 @@ test('creates an Employee Object', () => {
     expect(employee.id).toEqual(expect.any(Number));
     expect(employee.email).toBe('Charley@Gmail.com')
 });
+
+
+// test for methods as well get
