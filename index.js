@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
-
+const Engineer = require('./lib/Engineer')
+const Manager = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
+const {generateHTML} = require('./src/generateHTML')
 
 const promptEmployee = () => {
     return inquirer.prompt([
@@ -10,12 +13,12 @@ const promptEmployee = () => {
         },
         {
             type: 'input',
-            name: 'ID',
+            name: 'id',
             message: "Enter the Employee's Id:",
         },
         {
             type: 'input',
-            name: 'Email',
+            name: 'email',
             message: "Enter the Employees's Email:",
         },
         {
@@ -49,9 +52,11 @@ const promptRole = employeeData => {
 
             },
 
-        ]).then(projectData => {
-            employeeData.officeNumber = projectData;
-            return employeeData;
+        ]).then(({officeNumber}) => {
+            const engineer = new Engineer (employeeData.name, employeeData.id, employeeData.email, officeNumber)
+            return engineer;
+        
+       
         });
     }
     if (employeeData.role === 'Engineer') {
@@ -74,11 +79,12 @@ const promptRole = employeeData => {
 
             },
 
-        ]).then(projectData => {
-            employeeData.github = projectData;
-            return employeeData;
+        ]).then(({github}) => {
+            const engineer = new Engineer (employeeData.name, employeeData.id, employeeData.email, github)
+            return engineer;
 
         });
+
     }
     if (employeeData.role === 'Intern') {
         if (!employeeData.college) {
@@ -88,7 +94,7 @@ const promptRole = employeeData => {
         return inquirer.prompt([
             {
                 type: 'input',
-                name: 'college',
+                name: 'school',
                 message: "Please Enter the Intern's College",
                 validate: nameInput => {
                     if (nameInput) {
@@ -100,10 +106,10 @@ const promptRole = employeeData => {
                 }
             },
 
-        ]).then(projectData => {
-            employeeData.college = projectData;
-
-            return employeeData;
+        ]).then(({school}) => {
+            const intern = new Intern (employeeData.name, employeeData.id, employeeData.email, school)
+            return intern;
+           
         });
     }
 
@@ -125,8 +131,8 @@ const promptAddEmployee = employeeData => {
 
             },
 
-        ]).then(projectData => {
-            employeeData.confirmAdd = projectData;
+        ]).then(({confirmAdd}) => {
+            employeeData.confirmAdd = confirmAdd;
             return employeeData;
         });
     }
@@ -134,8 +140,7 @@ let dataArray = []
 
 const compiler = data => {
     dataArray.push(data);
-    console.log(dataArray);
-    if(data.confirmAdd.confirmAdd) {
+    if(data.confirmAdd) {
         employeeLoop();   
     } else {
         generateHTML(dataArray)
@@ -150,3 +155,10 @@ const employeeLoop = () => {
         .then(compiler)
 }
 employeeLoop();
+
+
+
+
+
+
+
