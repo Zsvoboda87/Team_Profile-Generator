@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer')
-const Manager = require('./lib/Engineer')
+const Manager = require('./lib/Manager')
 const Intern = require('./lib/Intern')
 const {generateHTML} = require('./src/generateHTML')
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 
 const promptEmployee = () => {
     return inquirer.prompt([
@@ -53,8 +54,8 @@ const promptRole = employeeData => {
             },
 
         ]).then(({officeNumber}) => {
-            const engineer = new Engineer (employeeData.name, employeeData.id, employeeData.email, officeNumber)
-            return engineer;
+            const manager = new Manager (employeeData.name, employeeData.id, employeeData.email, officeNumber)
+            return manager;
         
        
         });
@@ -90,7 +91,6 @@ const promptRole = employeeData => {
         if (!employeeData.college) {
             employeeData.college = '';
         }
-
         return inquirer.prompt([
             {
                 type: 'input',
@@ -105,15 +105,12 @@ const promptRole = employeeData => {
                     }
                 }
             },
-
         ]).then(({school}) => {
             const intern = new Intern (employeeData.name, employeeData.id, employeeData.email, school)
             return intern;
            
         });
     }
-
-
 };
 
 const promptAddEmployee = employeeData => {
@@ -136,6 +133,7 @@ const promptAddEmployee = employeeData => {
             return employeeData;
         });
     }
+
 let dataArray = []
 
 const compiler = data => {
@@ -143,18 +141,23 @@ const compiler = data => {
     if(data.confirmAdd) {
         employeeLoop();   
     } else {
-        generateHTML(dataArray)
+      return generateHTML(dataArray)
     }
-
 };
+// .then(pageHTML => {
+//     writeFile(pageHTML);
+//   })
 
 const employeeLoop = () => {
     promptEmployee()
         .then(promptRole)
         .then(promptAddEmployee)
         .then(compiler)
+        .then(writeFile)
+       
+
 }
-employeeLoop();
+employeeLoop()
 
 
 

@@ -1,7 +1,80 @@
+// const Employee = require("./lib/Employee");
+// const Engineer = require('./lib/Engineer')
+// const Manager = require('./lib/Engineer')
+// const Intern = require('./lib/Intern')
+
+const generateManger = dataArray => {
+    let template = ''
+    for(i =0; i < dataArray.length; i++) {
+        if (dataArray[i].getRole() == 'Manager') {
+            template += 
+            `
+            <div class="card">
+            <div class= "card-header">
+                <h3>${dataArray[i].getName()}</h3>
+                <h4>Manager</h4>
+            </div>
+            <div class= "card-main">
+                <div>ID: ${dataArray[i].getId()}</div>
+                <div>Email:${dataArray[i].getEmail()}</div>
+                <div>OfficeNumber:${dataArray[i].getOfficeNumber()}</div>
+            </div>
+            </div>`
+        }
+    } 
+    return template
+}
+
+const generateEngineer = dataArray => {
+    let template = ''
+    for(i =0; i < dataArray.length; i++) {
+        if (dataArray[i].getRole() == 'Engineer') {
+            template += 
+            `
+            <div class="card">
+            <div class= "card-header">
+                <h3>${dataArray[i].getName()}</h3>
+                <h4>Engineer</h4>
+            </div>
+            <div class= "card-main">
+                <div>ID: ${dataArray[i].getId()}</div>
+                <div>Email:${dataArray[i].getEmail()}</div>
+                <div>OfficeNumber:${dataArray[i].getGithub()}</div>
+            </div>
+            </div>`
+        }
+    } 
+    return template
+}
+
+const generateIntern = dataArray => {
+    let template = ''
+    for(i =0; i < dataArray.length; i++) {
+        if (dataArray[i].getRole() == 'Intern') {
+            template += 
+            `
+            <div class="card">
+            <div class= "card-header">
+                <h3>${dataArray[i].getName()}</h3>
+                <h4>Intern</h4>
+            </div>
+            <div class= "card-main">
+                <div>ID: ${dataArray[i].getId()}</div>
+                <div>Email:${dataArray[i].getEmail()}</div>
+                <div>OfficeNumber:${dataArray[i].getSchool()}</div>
+            </div>
+            </div>`
+        }
+    } 
+    return template
+}
+
+
+
+
 
 const generateHTML = dataArray => {
     console.log(dataArray)
-
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -18,62 +91,13 @@ const generateHTML = dataArray => {
     </header>
     <main>
         <div id='card-parent' class="flex-evenly">
-
             ${generateManger(dataArray)}
-            <div class="card">
-                <div class= "card-header">
-                    <h3>Name</h3>
-                    <h4>Role</h4>
-                </div>
-                <div class= "card-main">
-                    <div>ID</div>
-                    <div>Email</div>
-                    <div>role specific</div>
-                </div>
-            </div>
-
+            ${generateEngineer(dataArray)}
+            ${generateIntern(dataArray)}
         </div>
     </main>
 </body>`
 }
-
-const generateManger = dataArray => {
-    let template = ''
-    for(i =0; i < dataArray.length; i++) {
-        if (dataArray[i].role == 'Manager') {
-            template += `html`
-        }
-    }
-    return template
-}
-
-// let mockArray =
-//     [
-//         {
-//             name: 'Zac',
-//             ID: '8',
-//             Email: 'jjj',
-//             role: 'Engineer',
-//             github: { github: 'github' },
-//             confirmAdd: { confirmAdd: true }
-//         },
-//         {
-//             name: 'bill',
-//             ID: '7',
-//             Email: 'email',
-//             role: 'Intern',
-//             college: { college: 'college' },
-//             confirmAdd: { confirmAdd: true }
-//         },
-//         {
-//             name: 'manager',
-//             ID: '66',
-//             Email: 'manager',
-//             role: 'Manager',
-//             officeNumber: { officeNumber: '7' },
-//             confirmAdd: { confirmAdd: false }
-//         }
-//     ]
 
 
 
