@@ -12,7 +12,7 @@ const generateManger = dataArray => {
             </div>
             <div class= "card-main">
                 <div>ID: ` + `${dataArray[i].getId()}</div>
-                <a href="mailto:${dataArray[i].getEmail()}">Email: ${dataArray[i].getEmail()}</a>
+                <a href="mailto:${dataArray[i].getEmail()}">Email: `+`${dataArray[i].getEmail()}</a>
                 <div>OfficeNumber: `+`${dataArray[i].getOfficeNumber()}</div>
             </div>
             </div>`
@@ -34,8 +34,9 @@ const generateEngineer = dataArray => {
             </div>
             <div class= "card-main">
                 <div>ID: ${dataArray[i].getId()}</div>
-                <a href="mailto:${dataArray[i].getEmail()}">Email: ${dataArray[i].getEmail()}</a>
-                <div>OfficeNumber:${dataArray[i].getGithub()}</div>
+                <a href="mailto:${dataArray[i].getEmail()}">Email: `+`${dataArray[i].getEmail()}</a>
+                <a href="https://github.com/${dataArray[i].getGithub()}"> Github: `+`${dataArray[i].getGithub()}</a>
+                
             </div>
             </div>`
         }
@@ -56,8 +57,8 @@ const generateIntern = dataArray => {
             </div>
             <div class= "card-main">
                 <div>ID: ${dataArray[i].getId()}</div>
-                <a href="mailto:${dataArray[i].getEmail()}">Email: ${dataArray[i].getEmail()}</a>
-                <div>OfficeNumber:${dataArray[i].getSchool()}</div>
+                <a href="mailto:${dataArray[i].getEmail()}">Email: `+`${dataArray[i].getEmail()}</a>
+                <div>College:` + `${dataArray[i].getSchool()}</div>
             </div>
             </div>`
         }

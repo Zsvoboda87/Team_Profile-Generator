@@ -68,7 +68,7 @@ const promptRole = employeeData => {
             {
                 type: 'input',
                 name: 'github',
-                message: "Enter the Engineer's GitHub:",
+                message: "Enter the Engineer's GitHub Username:",
                 validate: nameInput => {
                     if (nameInput) {
                         return true;
