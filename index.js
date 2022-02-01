@@ -141,21 +141,17 @@ const compiler = data => {
     if(data.confirmAdd) {
         employeeLoop();   
     } else {
-      return generateHTML(dataArray)
+      let x = generateHTML(dataArray)
+      writeFile(x) 
     }
 };
-// .then(pageHTML => {
-//     writeFile(pageHTML);
-//   })
+
 
 const employeeLoop = () => {
     promptEmployee()
         .then(promptRole)
         .then(promptAddEmployee)
         .then(compiler)
-        .then(writeFile)
-       
-
 }
 employeeLoop()
 

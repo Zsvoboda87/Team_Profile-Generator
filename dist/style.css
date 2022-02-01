@@ -14,16 +14,19 @@
     background-color: lightslategray;
   }
   .card-header {
-    margin-top: 0;
+
+    padding: 4px;
+    border-bottom: 2px solid;
     background-color: limegreen;
   }
   .card-header h3 {
-    padding-top: 3px;
+   font-size: 23px;
+   margin-bottom: 0;
  
   }
 
   .card-header h4 {
-    padding-bottom: 3px;
+    font-size: 18px;
     
   }
 

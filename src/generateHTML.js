@@ -1,7 +1,3 @@
-// const Employee = require("./lib/Employee");
-// const Engineer = require('./lib/Engineer')
-// const Manager = require('./lib/Engineer')
-// const Intern = require('./lib/Intern')
 
 const generateManger = dataArray => {
     let template = ''
@@ -15,9 +11,9 @@ const generateManger = dataArray => {
                 <h4>Manager</h4>
             </div>
             <div class= "card-main">
-                <div>ID: ${dataArray[i].getId()}</div>
-                <div>Email:${dataArray[i].getEmail()}</div>
-                <div>OfficeNumber:${dataArray[i].getOfficeNumber()}</div>
+                <div>ID: ` + `${dataArray[i].getId()}</div>
+                <a href="mailto:${dataArray[i].getEmail()}">Email: ${dataArray[i].getEmail()}</a>
+                <div>OfficeNumber: `+`${dataArray[i].getOfficeNumber()}</div>
             </div>
             </div>`
         }
@@ -38,7 +34,7 @@ const generateEngineer = dataArray => {
             </div>
             <div class= "card-main">
                 <div>ID: ${dataArray[i].getId()}</div>
-                <div>Email:${dataArray[i].getEmail()}</div>
+                <a href="mailto:${dataArray[i].getEmail()}">Email: ${dataArray[i].getEmail()}</a>
                 <div>OfficeNumber:${dataArray[i].getGithub()}</div>
             </div>
             </div>`
@@ -60,7 +56,7 @@ const generateIntern = dataArray => {
             </div>
             <div class= "card-main">
                 <div>ID: ${dataArray[i].getId()}</div>
-                <div>Email:${dataArray[i].getEmail()}</div>
+                <a href="mailto:${dataArray[i].getEmail()}">Email: ${dataArray[i].getEmail()}</a>
                 <div>OfficeNumber:${dataArray[i].getSchool()}</div>
             </div>
             </div>`
@@ -69,12 +65,7 @@ const generateIntern = dataArray => {
     return template
 }
 
-
-
-
-
 const generateHTML = dataArray => {
-    console.log(dataArray)
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -98,9 +89,5 @@ const generateHTML = dataArray => {
     </main>
 </body>`
 }
-
-
-
-
 
 module.exports = { generateHTML }
