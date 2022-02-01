@@ -35,7 +35,7 @@ const generateEngineer = dataArray => {
             <div class= "card-main">
                 <div>ID: ${dataArray[i].getId()}</div>
                 <a href="mailto:${dataArray[i].getEmail()}">Email: `+`${dataArray[i].getEmail()}</a>
-                <a href="https://github.com/${dataArray[i].getGithub()}"> Github: `+`${dataArray[i].getGithub()}</a>
+                <div><a href="https://github.com/${dataArray[i].getGithub()}">Github: `+`${dataArray[i].getGithub()}</a></div>
                 
             </div>
             </div>`
